@@ -20,17 +20,20 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity(name = "students")
-public class Student {
-
+@Entity(name = "questions")
+public class Question {
+	
 	@Id @GeneratedValue(strategy = GenerationType.UUID)
 	private UUID id;
 	
-	@Column(unique = true, nullable = false)
-	private String email;
+	@Column(length = 50)
+	private String technology;
 	
-	@OneToMany(mappedBy = "student")
-	private List<CertificationStudent> certificationStudentList;
+	private String description;
+	
+	@OneToMany
+	@JoinColumn(name = "question_id")
+	private List<Alternatives> alternatives;
 	
 	@CreationTimestamp
 	private LocalDateTime createdAt;

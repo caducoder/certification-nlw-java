@@ -21,7 +21,7 @@ public class StudentController {
 		System.out.println(verifyHasCertificationDTO);
 		var result = this.verifyIfHasCertificationService.execute(verifyHasCertificationDTO);
 		if(result) {
-			return "Usuário já fez a prove";
+			return "Usuário já fez a prova";
 		}
 		return "Usuário pode fazer a prova";
 	}
